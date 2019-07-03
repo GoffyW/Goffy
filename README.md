@@ -10,9 +10,9 @@
 
 ### 🎁JavaWeb技术
 
-| Servlet+Tomcat | JSP  | JDBC | Ajax和JSON | Web前端 | 面试题 |
-| -------------- | ---- | ---- | ---------- | ------- | ------ |
-|                |      |      | Ajax+JSON  |         |        |
+| Servlet+Tomcat | JSP  | JDBC | Ajax和JSON                                                   | Web前端 | 面试题 |
+| -------------- | ---- | ---- | ------------------------------------------------------------ | ------- | ------ |
+|                |      |      | [Ajax+JSON](https://github.com/GoffyW/Goffy/tree/master/JavaWeb/Ajax%2BJSON) |         |        |
 
 ### 🔩数据库（DB）
 
