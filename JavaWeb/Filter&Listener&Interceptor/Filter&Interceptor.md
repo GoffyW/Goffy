@@ -1,16 +1,16 @@
 ### 拦截器与过滤器的区别
 
-#### 过滤器：
+### 过滤器：
 
 ​	依赖于servlet容器。在实现上基于函数回调，可以对几乎所有请求进行过滤。但是缺点是一个过滤器实例只能在容器初始化时调用一次。使用过滤器的目的是用来做一些过滤操作，获取我们想要获取的数据。
 
 **比如：在过滤器中修改字符编码；在过滤器中修改HttpServletRequest的一些参数，包括：过滤低俗文字、危险字符等**
 
-#### 拦截器：
+### 拦截器：
 
 ​	依赖于web框架，在SpringMVC中就是依赖于SpringMVC框架。在实现上基于Java的反射机制，属于面向切面编程（AOP）的一种运用。由于拦截器是基于web框架的调用，因此可以使用Spring的依赖注入（DI）进行一些业务操作，同时一个拦截器实例在一个controller生命周期之内可以多次调用。但是缺点是只能对controller请求进行拦截，对其他的一些比如直接访问静态资源的请求则没办法进行拦截处理
 
-#### 过滤器和拦截器的区别：
+### 过滤器和拦截器的区别：
 
 ​		①拦截器是基于java的反射机制的，而过滤器是基于函数回调。
 
@@ -66,3 +66,44 @@
 2. ##### 拦截器
 
    拦截器（Interceptor）：在一个流程正在进行的时候，你希望干预它的进展，甚至终止它进行，这是拦截器做的事情。（理解：就是一堆字母中，干预他，通过验证的少点，顺便干点别的东西）
+
+### 监听器
+
+javax.servlet.ServletContextListener接口的服务器端程序，它也是随web应用的启动而启动，只初始化一次，随web应用的停止而销毁
+
+主要作用是：做一些初始化的内容添加工作、设置一些基本的内容、比如一些参数或者是一些固定的对象等等
+
+在javax.servlet.ServletContextListener接口中定义了2种方法：
+
+- void contextInitialized(ServletContextEvent sce) 监听器的初始化
+- void contextDestroyed(ServletContextEvent sce) 监听器销毁
+
+```Java
+package com.cn.util;  
+ 
+import javax.servlet.ServletContextEvent;  
+import javax.servlet.ServletContextListener;  
+ 
+public class ServletContextListener implements ServletContextListener{  
+ 
+ //监听器的初始化 
+ @Override 
+ public void contextInitialized(ServletContextEvent sce) {  
+        System.out.println("监听器ServletContextListener初始化");  
+    }  
+ 
+ //监听器的销毁 
+ @Override 
+ public void contextDestroyed(ServletContextEvent sce) {  
+        System.out.println("监听器ServletContextListener销毁");  
+    }  
+} 
+```
+
+注：项目启动时，先启动监听器，再启动过滤器。
+
+### 总结：
+
+1. 过滤器（Filter）：当你有一堆东西的时候，你只希望选择符合你要求的某一些东西。定义这些要求的工具，就是过滤器。
+2. 拦截器（Interceptor）：在一个流程正在进行的时候，你希望干预它的进展，甚至终止它进行，这是拦截器做的事情。
+3. 监听器（Listener）：当一个事件发生的时候，你希望获得这个事件发生的详细信息，而并不想干预这个事件本身的进程，这就要用到监听器。
