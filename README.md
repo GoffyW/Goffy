@@ -7,7 +7,7 @@
 <!--  💬 Learning English 🇺🇸 
 - 💬 Learning English
 - 👯 Good at team work -->
-- 🌱 Learning how to become a pragmatic programer 
+- 🌱 Learning how to become a pragmatic programmer 
 
 <!--
 **goffyguo/goffyguo** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
